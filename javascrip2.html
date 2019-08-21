@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>javascrip2</title>
+</head>
+<body>
+    <span><img id="change" src="picture2/1.png" height="100px" width="203px"></span>
+</body>
+<script type="text/javascript">
+    var food = 0;
+    var picture = new Array("1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png", "8.png", "9.png", "10.png");
+    function f() {
+        var change = document.getElementById("change");
+        change.src = "picture2/" + picture[food++];
+        if (food >= picture.length) {
+            food = 0
+        }
+        setTimeout(f,1000);
+    }
+    f()
+
+</script>
+</html>

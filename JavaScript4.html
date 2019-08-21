@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript4</title>
+    <style>
+        body{
+            font-size: 20px;
+        }
+
+        .input{
+            background: #F5F5F5;
+            font-weight: bold;
+        }
+        .right{
+            background: #F5F5F5;
+            font-weight: bold;
+            border: green solid 1px;
+        }
+        .wrong{
+            background: #F5F5F5;
+            font-weight: bold;
+            border: red solid 1px;
+        }
+
+        div{
+            height: 1000px;
+            width: 1000px;
+            position: absolute;
+            margin-top: 200px;
+            margin-left: 400px;
+        }
+    </style>
+
+    <script>
+        function f() {
+            var password = "123456789";
+            pwd = document.getElementById("pwd");
+            tishi1 = document.getElementById("tishi1");
+            if(pwd.value!=""){
+                pwd.className="right";
+                if(pwd.value == password){
+                    tishi1.innerHTML = "<font style='font-size: 10px' color='green'>密码正确!</font>";
+                    return true;
+                }else {
+                    tishi1.innerHTML="<font style='font-size: 10px' color='red'>密码错误!</font>"
+                    return false;
+                }
+            }else {
+                pwd.className="wrong";
+                tishi1.innerHTML="<font style='font-size: 10px' color='red'>密码为空!</font>"
+                return false
+            }
+        }
+
+        function validatapwd(){
+            return f();
+        }
+    </script>
+</head>
+<body>
+<div>
+    <form onsubmit="return validatapwd()" action="web.html" >
+        输入密码:<input type="password" id="pwd" name="pwd" class="input" onblur="validatapwd()"><span id="tishi1"></span>
+        <button>确认</button>
+    </form>
+</div>
+
+</body>
+</html>

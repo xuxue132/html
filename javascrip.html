@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>javascriptest</title>
+    <script type="text/javascript">
+        var food=0;
+        var picture = new Array("1.png","2.png","3.png","4.png","5.png","6.png","7.png","8.png","9.png","10.png");
+        window.onload=function () {
+            var up = document.getElementById("up");
+            var down = document.getElementById("down");
+            var change = document.getElementById("change");
+            up.addEventListener("click",function () {
+                if(food <=0){
+                    food=picture.length-1;
+                }
+                change.src="picture2/"+picture[--food];
+            },false)
+            down.addEventListener("click",function () {
+                if(food >=picture.length-1){
+                    food=0;
+                }
+                change.src="picture2/"+picture[++food];
+            },false)
+
+        }
+    </script>
+</head>
+<body>
+    <span><img id="change" src="picture2/1.png" height="100px" width="203px"></span>
+    <div>
+        <button id="up">上一张</button>
+        <button id="down">下一张</button>
+    </div>
+</body>
+</html>

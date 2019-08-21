@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript3</title>
+    <style >
+        body{
+            font-size: 20px;
+        }
+
+        .input{
+            background: #F5F5F5;
+            font-weight: bold;
+        }
+        .right{
+            background: #F5F5F5;
+            font-weight: bold;
+            border: green solid 1px;
+        }
+        .wrong{
+            background: #F5F5F5;
+            font-weight: bold;
+            border: red solid 1px;
+        }
+    </style>
+    <script>
+       function validataEmail(){
+           var email = document.getElementById("email");
+            var emailid=document.getElementById("emailid")
+           if(/^\w+@\w+\.\w+$/.test(email.value)){
+               email.className="right";
+               emailid.innerHTML = "email输入正确!";
+               return true;
+           }else {
+               email.className="wrong";
+               emailid.innerHTML="email输入错误!";
+               return false;
+           }
+       }
+
+       function f() {
+           return validataEmail()
+       }
+
+    </script>
+</head>
+<body>
+    <form  onsubmit="return f()" action="web.html">
+        请输入邮箱:<input id="email" name="email" type="text" value="" class="input" onblur="validataEmail()">
+        <span id="emailid"></span><br>
+        <button>显示内容</button>
+    </form>
+</body>
+</html>
